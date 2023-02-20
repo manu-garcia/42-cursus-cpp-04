@@ -1,0 +1,46 @@
+#include "WrongCat.hpp"
+
+#define WRONG_CAT_TYPE "WrongCat"
+
+///////////////////////////////////////////////////////////////////////////////
+// Constructors / Destructor
+///////////////////////////////////////////////////////////////////////////////
+
+WrongCat::WrongCat()
+{
+    type = WRONG_CAT_TYPE;
+    std::cout << "WrongCat Default constructor." << std::endl;
+}
+
+WrongCat::WrongCat(const WrongCat &cat)
+{
+    *this = cat;
+    std::cout << "WrongCat Copy constructor." << std::endl;
+}
+
+WrongCat::~WrongCat()
+{
+    std::cout << "WrongCat destructor." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////
+
+WrongCat &WrongCat::operator=(const WrongCat &cat)
+{
+    type = cat.getType();
+
+    std::cout << "WrongCat copy operator." << std::endl;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Member functions
+///////////////////////////////////////////////////////////////////////////////
+
+void WrongCat::makeSound(void) const
+{
+    std::cout << "wrong cat meow" << std::endl;
+}
