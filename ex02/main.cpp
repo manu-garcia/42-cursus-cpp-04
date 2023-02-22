@@ -45,12 +45,8 @@ int main(void)
         std::cout << std::endl;
     }
 
-    std::cout << "Testing deep copy" << std::endl;
-
-    Cat cat1;
-    Cat cat2;
-
-    cat1 = cat2;
+    // std::cout << "Testing instaciating an animal" << std::endl;
+    // Animal test;
 
     std::cout << std::endl << "Cleaning up..." << std::endl;
 
