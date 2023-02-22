@@ -8,18 +8,21 @@
 
 Dog::Dog()
 {
-    type = DOG_TYPE;
     std::cout << "Dog Default constructor." << std::endl;
+    type = DOG_TYPE;
+    brain = new Brain();
 }
 
 Dog::Dog(const Dog &dog)
 {
-    *this = dog;
     std::cout << "Dog Copy constructor." << std::endl;
+    *this = dog;
+    brain = new Brain();
 }
 
 Dog::~Dog()
 {
+    delete brain;
     std::cout << "Dog destructor." << std::endl;
 }
 
@@ -29,9 +32,9 @@ Dog::~Dog()
 
 Dog &Dog::operator=(const Dog &dog)
 {
-    type = dog.getType();
-
     std::cout << "Dog copy operator." << std::endl;
+    type = dog.getType();
+    brain = dog.brain;
 
     return *this;
 }

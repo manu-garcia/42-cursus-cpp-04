@@ -8,18 +8,21 @@
 
 Cat::Cat()
 {
-    type = CAT_TYPE;
     std::cout << "Cat Default constructor." << std::endl;
+    type = CAT_TYPE;
+    brain = new Brain();
 }
 
 Cat::Cat(const Cat &cat)
 {
-    *this = cat;
     std::cout << "Cat Copy constructor." << std::endl;
+    *this = cat;
+    brain = new Brain();
 }
 
 Cat::~Cat()
 {
+    delete brain;
     std::cout << "Cat destructor." << std::endl;
 }
 
@@ -29,9 +32,9 @@ Cat::~Cat()
 
 Cat &Cat::operator=(const Cat &cat)
 {
-    type = cat.getType();
-
     std::cout << "Cat copy operator." << std::endl;
+    type = cat.getType();
+    *brain = *cat.brain;
 
     return *this;
 }

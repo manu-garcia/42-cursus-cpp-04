@@ -6,6 +6,7 @@ SRC 		= 	$(SRC_DIR)/main.cpp \
 				$(SRC_DIR)/Dog.cpp \
 				$(SRC_DIR)/WrongAnimal.cpp \
 				$(SRC_DIR)/WrongCat.cpp \
+				$(SRC_DIR)/Brain.cpp \
 
 CC 			= c++
 INCLUDES	= 

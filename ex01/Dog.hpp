@@ -4,14 +4,17 @@
 #include <iostream>
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog: virtual public Animal
 {
+private:
+    Brain *brain;
 
 public:
     Dog();
     Dog(const Dog &dog);
-    ~Dog();
+    virtual ~Dog();
 
     Dog &operator=(const Dog &dog);
 
