@@ -1,0 +1,49 @@
+#include "Dog.hpp"
+
+///////////////////////////////////////////////////////////////////////////////
+// Constructors / Destructor
+///////////////////////////////////////////////////////////////////////////////
+
+#define DOG_TYPE "Dog"
+
+Dog::Dog()
+{
+    std::cout << "Dog Default constructor." << std::endl;
+    type = DOG_TYPE;
+    brain = new Brain();
+}
+
+Dog::Dog(const Dog &dog)
+{
+    std::cout << "Dog Copy constructor." << std::endl;
+    *this = dog;
+    brain = new Brain();
+}
+
+Dog::~Dog()
+{
+    delete brain;
+    std::cout << "Dog destructor." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////
+
+Dog &Dog::operator=(const Dog &dog)
+{
+    std::cout << "Dog copy operator." << std::endl;
+    type = dog.getType();
+    brain = dog.brain;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Member functions
+///////////////////////////////////////////////////////////////////////////////
+
+void Dog::makeSound(void) const
+{
+    std::cout << "Woof" << std::endl;
+}

@@ -1,0 +1,45 @@
+#include "Brain.hpp"
+
+///////////////////////////////////////////////////////////////////////////////
+// Constructors / Destructor
+///////////////////////////////////////////////////////////////////////////////
+
+Brain::Brain()
+{
+    std::cout << "Brain Default constructor." << std::endl;
+}
+
+Brain::Brain(const Brain &brain)
+{
+    *this = brain;
+    std::cout << "Brain Copy constructor." << std::endl;
+}
+
+Brain::~Brain()
+{
+    std::cout << "Brain destructor." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////
+
+Brain &Brain::operator=(const Brain &brain)
+{
+    std::cout << "Brain copy operator. Copying ideas..." << std::endl;
+    for (unsigned int i = 0; i < getNumberIdeas(); i++)
+    {
+        ideas[i] = brain.ideas[i];
+    }
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Member functions
+///////////////////////////////////////////////////////////////////////////////
+
+unsigned int Brain::getNumberIdeas(void) const
+{
+    return NUMBER_BRAIN_IDEAS;
+}

@@ -1,0 +1,49 @@
+#include "Cat.hpp"
+
+#define CAT_TYPE "Cat"
+
+///////////////////////////////////////////////////////////////////////////////
+// Constructors / Destructor
+///////////////////////////////////////////////////////////////////////////////
+
+Cat::Cat()
+{
+    std::cout << "Cat Default constructor." << std::endl;
+    type = CAT_TYPE;
+    brain = new Brain();
+}
+
+Cat::Cat(const Cat &cat)
+{
+    std::cout << "Cat Copy constructor." << std::endl;
+    *this = cat;
+    brain = new Brain();
+}
+
+Cat::~Cat()
+{
+    delete brain;
+    std::cout << "Cat destructor." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////
+
+Cat &Cat::operator=(const Cat &cat)
+{
+    std::cout << "Cat copy operator." << std::endl;
+    type = cat.getType();
+    *brain = *cat.brain;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Member functions
+///////////////////////////////////////////////////////////////////////////////
+
+void Cat::makeSound(void) const
+{
+    std::cout << "meow" << std::endl;
+}

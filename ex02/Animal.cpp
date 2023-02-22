@@ -1,0 +1,50 @@
+#include "Animal.hpp"
+
+#define ANIMAL_TYPE "Animal"
+
+///////////////////////////////////////////////////////////////////////////////
+// Constructors / Destructor
+///////////////////////////////////////////////////////////////////////////////
+
+Animal::Animal() : type(ANIMAL_TYPE)
+{
+    std::cout << "Animal Default constructor." << std::endl;
+}
+
+Animal::Animal(const Animal &animal)
+{
+    *this = animal;
+    std::cout << "Animal Copy constructor." << std::endl;
+}
+
+Animal::~Animal()
+{
+    std::cout << "Animal destructor." << std::endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Operators
+///////////////////////////////////////////////////////////////////////////////
+
+Animal &Animal::operator=(const Animal &animal)
+{
+    type = animal.getType();
+
+    std::cout << "Animal copy operator." << std::endl;
+
+    return *this;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Member functions
+///////////////////////////////////////////////////////////////////////////////
+
+std::string Animal::getType(void) const
+{
+    return type;
+}
+
+void Animal::makeSound(void) const
+{
+    std::cout << "generic animal sound" << std::endl;
+}
