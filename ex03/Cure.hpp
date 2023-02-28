@@ -8,7 +8,7 @@
 
 #define CURE_TYPE "cure"
 
-class Cure: public AMateria
+class Cure : public AMateria
 {
 public:
     Cure();

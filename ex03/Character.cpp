@@ -4,11 +4,9 @@
 // Constructors / Destructor
 ///////////////////////////////////////////////////////////////////////////////
 
-Character::Character()
+Character::Character() : name("Unknown"), numberEquipedMaterias(0)
 {
-    name = "Unknown";
-    numberEquipedMaterias = 0;
-    for (unsigned int i; i < MAX_MATERIAS; i++)
+    for (unsigned int i = 0; i < MAX_MATERIAS; i++)
     {
         materias[i] = NULL;
     }
@@ -16,9 +14,13 @@ Character::Character()
     std::cout << "Character Default constructor." << std::endl;
 }
 
-Character::Character(const std::string newName)
+Character::Character(const std::string name) : name(name), numberEquipedMaterias(0)
 {
-    name = newName;
+    for (unsigned int i = 0; i < MAX_MATERIAS; i++)
+    {
+        materias[i] = NULL;
+    }
+
     std::cout << "Character constructor with name." << std::endl;
 }
 
@@ -44,7 +46,8 @@ Character &Character::operator=(const Character &character)
     // We free them!! But unequiping we do not! Issue here?
     freeMaterias();
     numberEquipedMaterias = character.numberEquipedMaterias;
-    for (unsigned int i; i < MAX_MATERIAS; i++)
+
+    for (unsigned int i = 0; i < MAX_MATERIAS; i++)
     {
         // We free them!! But unequiping we do not! Issue here?
         *materias[i] = *character.materias[i];
@@ -60,7 +63,7 @@ Character &Character::operator=(const Character &character)
 void Character::freeMaterias()
 {
     numberEquipedMaterias = 0;
-    for (unsigned int i; i < MAX_MATERIAS; i++)
+    for (unsigned int i = 0; i < MAX_MATERIAS; i++)
     {
         if (materias[i] != NULL)
         {
@@ -89,13 +92,14 @@ void Character::equip(AMateria *m)
         return;
     }
 
-    for (unsigned int i; i < MAX_MATERIAS; i++)
+    for (unsigned int i = 0; i < MAX_MATERIAS; i++)
     {
         if (materias[i] == NULL)
         {
             // Subject says it must not delete the materia. So we cannot duplicate it here.
             materias[i] = m;
             numberEquipedMaterias++;
+            return;
         }
     }
 }
@@ -120,7 +124,7 @@ void Character::unequip(int idx)
     numberEquipedMaterias--;
 }
 
-void Character::use(int idx, Character &target)
+void Character::use(int idx, ICharacter &target)
 {
     if (idx > (MAX_MATERIAS - 1))
     {
@@ -134,5 +138,5 @@ void Character::use(int idx, Character &target)
         return;
     }
 
-    // ???
+    std::cout << getName() << " using materia " << materias[idx]->getType() << " on target " << target.getName() << std::endl;
 }

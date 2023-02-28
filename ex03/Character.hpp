@@ -11,9 +11,9 @@
 class Character : public ICharacter
 {
 protected:
-    AMateria *materias[MAX_MATERIAS];
-    unsigned int numberEquipedMaterias;
     std::string name;
+    unsigned int numberEquipedMaterias;
+    AMateria *materias[MAX_MATERIAS];
 
 public:
     Character();
@@ -28,7 +28,7 @@ public:
     std::string const &getName() const;
     void equip(AMateria *m);
     void unequip(int idx);
-    void use(int idx, Character &target);
+    void use(int idx, ICharacter &target);
 };
 
 #endif

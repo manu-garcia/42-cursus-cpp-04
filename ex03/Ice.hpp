@@ -8,7 +8,7 @@
 
 #define ICE_TYPE "ice"
 
-class Ice: public AMateria
+class Ice : public AMateria
 {
 public:
     Ice();

@@ -1,10 +1,15 @@
 NAME 		= materia
 SRC_DIR		= ./
 SRC 		= 	$(SRC_DIR)/main.cpp \
+				$(SRC_DIR)/AMateria.cpp \
+				$(SRC_DIR)/Character.cpp \
+				$(SRC_DIR)/Cure.cpp \
+				$(SRC_DIR)/Ice.cpp \
+				$(SRC_DIR)/MateriaSource.cpp \
 
 CC 			= c++
 INCLUDES	= 
-CFLAGS 		= -Wall -Werror -Wextra -std=c++98 -Wshadow $(INCLUDES)
+CFLAGS 		= -Wall -Werror -Wextra -std=c++98 -Wshadow $(INCLUDES) -gfull
 OBJECTS		= 	$(SRC:.cpp=.o)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp

@@ -4,15 +4,13 @@
 // Constructors / Destructor
 ///////////////////////////////////////////////////////////////////////////////
 
-Ice::Ice()
+Ice::Ice(): AMateria(ICE_TYPE)
 {
-    type = ICE_TYPE;
     std::cout << "Ice Default constructor." << std::endl;
 }
 
-Ice::Ice(const std::string &newType)
+Ice::Ice(const std::string &type): AMateria(type)
 {
-    type = newType;
     std::cout << "Ice constructor with type." << std::endl;
 }
 
@@ -55,4 +53,3 @@ AMateria *Ice::clone() const
     *clone = *this;
     return clone;
 }
-

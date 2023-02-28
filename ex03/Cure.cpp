@@ -4,15 +4,13 @@
 // Constructors / Destructor
 ///////////////////////////////////////////////////////////////////////////////
 
-Cure::Cure()
+Cure::Cure(): AMateria(CURE_TYPE)
 {
-    type = CURE_TYPE;
     std::cout << "Cure Default constructor." << std::endl;
 }
 
-Cure::Cure(const std::string &newType)
+Cure::Cure(const std::string &type): AMateria(type)
 {
-    type = newType;
     std::cout << "Cure constructor with type." << std::endl;
 }
 
@@ -55,4 +53,3 @@ AMateria *Cure::clone() const
     *clone = *this;
     return clone;
 }
-
